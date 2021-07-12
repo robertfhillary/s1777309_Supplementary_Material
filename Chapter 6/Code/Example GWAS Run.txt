@@ -1,0 +1,16 @@
+
+cd /Inputs_For_GWAS/
+
+FILES=(*) 
+## First 15 proteins
+for i in ${FILES[@]:0:15}
+do 
+for x in {1..22} 
+do 
+data=/Inputs_For_GWAS/$i/$i_res.dat
+pedi=/Inputs_For_GWAS/$i/$i_res.ped
+info=/Data/CHR${x}_results.info; dose=/Data/CHR${x}_results.dose 
+mach2qtl-ext -d $data -p $pedi -i $info --dosefile $dose --samplesize > /Inputs_For_GWAS/$i/$i_output_chr${x}.out
+done
+done
+

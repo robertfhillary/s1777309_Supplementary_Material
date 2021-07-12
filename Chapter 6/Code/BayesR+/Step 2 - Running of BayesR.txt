@@ -1,0 +1,48 @@
+## Run in Terminal
+
+## Ensure correct gcc - complier is used 
+
+export LD_LIBRARY_PATH=/opt/gcc/lib64
+
+
+## Preprocessing Step 
+
+cd path_file
+
+../BayesRRcmd/src/brr                           ## access programme
+--data-file Bayes_Meth_New.csv                  ## omics file - .csv, rows are markers, columns are IDs, rows are scaled   
+--pheno Bayes_Inputs/Filename_here.csvphen      ## one row of phenotypes, each column is ID matched to order of molecular file, scaled 
+--analysis-type preprocess                      ## set analysis type as preprocess - program creates temporary file to access in main step
+--fixed_effects Covariates_Final.csv            ## covariate file - must be scaled 
+--fixedEffectNumber 5                           ## this tells the programme how many columns to use in covariate file (here, first 5 columns) 
+## -- group Groups.txt                         ## this is used in a multi-omics study, say genetics and epigenetics. The .txt file contains markers in first column and group in second column
+##                                              ## e.g. in second column, set 0 for methylation probes and 1 for genetic markers. quote = F, and col.names = F, and row.names = F when saving file
+--thread 12                                     ## Use 12 CPU threads (up to 32)  
+--thread-spawned 12                              
+--marker-cache                                  ## store the molecular markers in hidden memory so they don't have to be newly accessed every iteration 
+--seed 1                                        ## set seed for reproducbility in random walk
+
+## Analysis Step 
+ 
+
+../BayesRRcmd/src/brr  
+--data-file Bayes_Meth_New.csv   
+--pheno Bayes_Inputs/Filename_here.csvphen 
+--analysis-type ppbayes                         ## set analysis type as parallel bayesian penalised regression (synchronous), 
+                                                ## alternative is asyncppbayes for asynchronous which can be used for faster results (though less accurate) but is not faster in my experience for methylation
+--fixed_effects Covariates_Final.csv  
+--fixedEffectNumber 5 
+--chain-length 10000                            ## number of iterations to be performed - posterior sampling 
+--burn-in 5000                                  ## scraps the first 5000 iterations as they are likely to be inaccurate 
+--thin 5                                        ## only keeps every fifth iteration - to reduce autocorrelation 
+## -- group Groups.txt 
+--S "0.001,0.01,0.1"                            ## sets the mixture variances - so here, we have a group of markers that explain 0.001 or 0.1% of variance in trait, 
+                                                ## another group that explain 0.01 or 1% and a last group that explain 0.1 or 10% of variance
+                                                ## corresponds to effect sizes of varying magnitude - average effect size of marker across samples - small, medium or large here
+                                                ## if running multi-omic analysis with groups, set --S "0.001,0.01,0.1;0.01,0.1,0.2" for example to delineate different magnitudes for effect sizes of different marker type
+                                                ## the semi-colon ; is important to delineate the different groups. N.B must be balanced between groups i.e. same number of mixtures - here 3 for each
+--mcmc-samples /Outputs/Epigenetics_Only/${A}_output.csv ## set Markov chain monte carlo method of sampling (Gibbs sampling) and save output 
+--thread 12     
+--thread-spawned 12 
+--marker-cache 
+--seed 1
