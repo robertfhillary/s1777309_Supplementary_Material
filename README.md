@@ -1,10 +1,8 @@
-s1777309_Supplementary_Material
-
-Supplementary Material for Chapters 5-9 of PhD Thesis by Robert Hillary (s1777309). All supplementary material is provided for each chapter, along with code for the execution for the relevant study.
+Supplementary Material for Chapters 5-9 of PhD Thesis by Robert Hillary. All supplementary material is provided for each chapter, along with code for the execution for the relevant study.
 
 
 
-Chapter Details:
+## Chapter Details:
 Chapter 5: Genome and epigenome wide studies of neurological protein biomarkers in the Lothian Birth Cohort 1936
 
 Chapter 6: Multi-method genome- and epigenome-wide studies of inflammatory protein levels in healthy older adults
@@ -18,7 +16,7 @@ Chapter 9: Epigenetic measures of ageing predict the prevalence and incidence of
 
 
 
-Citations: 
+## Citations: 
 Hillary RF, McCartney DL, Harris SE, Stevenson AJ, Seeboth A, Zhang Q, et al. Genome and epigenome wide studies of neurological protein biomarkers in the Lothian Birth Cohort 1936. Nature Communications. 2019;10(1):3160. https://doi.org/10.1038/s41467-019-11177-x
 
 Hillary RF, Trejo-Banos D, Kousathanas A, McCartney DL, Harris SE, Stevenson AJ, et al. Multi-method genome- and epigenome-wide studies of inflammatory protein levels in healthy older adults. Genome Medicine. 2020;12(1):60. https://doi.org/10.1186/s13073-020-00754-1 
