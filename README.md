@@ -2,6 +2,8 @@ s1777309_Supplementary_Material
 
 Supplementary Material for Chapters 5-9 of PhD Thesis by Robert Hillary (s1777309). All supplementary material is provided for each chapter, along with code for the execution for the relevant study.
 
+
+
 Chapter Details:
 Chapter 5: Genome and epigenome wide studies of neurological protein biomarkers in the Lothian Birth Cohort 1936
 
@@ -12,6 +14,8 @@ Chapter 7: Genome and epigenome wide studies of plasma protein biomarkers for Al
 Chapter 8: An epigenetic predictor of death captures multi-modal measures of brain health
 
 Chapter 9: Epigenetic measures of ageing predict the prevalence and incidence of leading causes of death and disease burden
+
+
 
 
 Citations: 
