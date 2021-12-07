@@ -3,7 +3,7 @@
 var = read.csv("Combined_Variance_bayes.csv")
 var = var[order(var$Mean_Combined_Variance_Explained), ]
 protein <- rep(var$SOMAmer, each=3)
-condition <- rep(c("Epigenetics" , "Genetics" , "Combined"), 276)
+condition <- rep(c("Epigenetics" , "Genetics" , "Combined"), 308)
 data <- data.frame(protein,condition)
 data$value <- 0
 var[,2] <- var[,2]*100
@@ -19,7 +19,7 @@ data$condition <- factor(data$condition, levels = c("Epigenetics", "Genetics", "
 
 pdf("Additional_File4.pdf", width = 9, height = 6.5)
 
-for(i in 0:45){ 
+for(i in 0:51){ 
 data1 <- data[(1+(18*i)):(18+(18*i)),]
 x = ggplot(data1, aes(fill=condition, y=value, x=protein)) + 
   geom_bar(position="dodge", stat="identity") + scale_y_continuous(breaks = c(0,10,20,30,40,50,60,70,80,90,100), limits = c(0,100))  +
